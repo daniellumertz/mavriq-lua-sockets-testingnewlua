@@ -114,11 +114,11 @@ jobs:
 
       - name: Build luasockets
         run: |
-          curl -sSL -o lua.zip https://sourceforge.net/projects/luabinaries/files/5.3.6/Windows%20Libraries/Static/lua-5.3.6_Win64_vc16_lib.zip
+          curl -sSL -o lua.zip https://drive.google.com/u/0/uc?id=1_969M9ZMKsK2g6-jdtQPJMxRbo6ZnVMW&export=download
           7z.exe x lua.zip -olua
           git clone https://github.com/lunarmodules/luasocket --depth 1
           cd luasocket/
-          cp ../lua/lua53.lib .
+          cp ../lua/lua54.lib .
           cd src/
           cp ../../lua/include/lua.h .
           cp ../../lua/include/luaconf.h .
@@ -131,7 +131,7 @@ jobs:
       - name: Build
         run: |
           cd luasocket
-          msbuild socket.vcxproj  /p:Configuration=Release /p:Platform=x64 /property:AdditionalDependencies=lua53.lib /property:WindowsTargetPlatformVersion=10.0.19041.0
+          msbuild socket.vcxproj  /p:Configuration=Release /p:Platform=x64 /property:AdditionalDependencies=lua54.lib /property:WindowsTargetPlatformVersion=10.0.19041.0
 
       - name: Collect files
         run: |
