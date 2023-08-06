@@ -114,7 +114,7 @@ jobs:
 
       - name: Build luasockets
         run: |
-          curl -sSL -o lua.zip https://drive.google.com/u/0/uc?id=1_969M9ZMKsK2g6-jdtQPJMxRbo6ZnVMW
+          curl -L -o lua.zip "https://drive.google.com/uc?export=download&id=${1_969M9ZMKsK2g6-jdtQPJMxRbo6ZnVMW}"
           7z.exe x lua.zip -olua
           git clone https://github.com/lunarmodules/luasocket --depth 1
           cd luasocket/
