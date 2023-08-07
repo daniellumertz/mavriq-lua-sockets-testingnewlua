@@ -135,11 +135,11 @@ jobs:
           
           git clone https://github.com/GoranKovac/luasocket --depth 1
           cd luasocket/
-          cp ../lua/lua54.lib .
+          cp ../lua-5.4.6/src/lua54.lib .
           cd src/
-          cp ../../lua/include/lua.h .
-          cp ../../lua/include/luaconf.h .
-          cp ../../lua/include/lauxlib.h .
+          cp ../../lua-5.4.6/src/lua.h .
+          cp ../../lua-5.4.6/src/luaconf.h .
+          cp ../../lua-5.4.6/src/lauxlib.h .
           cd ..
 
       - name: Setup MSBuild path
