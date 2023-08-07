@@ -65,7 +65,7 @@ jobs:
 
       - name: Build luasockets
         run: |
-          git clone https://github.com/lunarmodules/luasocket --depth 1
+          git clone https://github.com/daniellumertz/luasocket --depth 1
           cd luasocket/src/
 
           cp ../../lua-5.3.6/src/liblua.a .
