@@ -133,6 +133,9 @@ jobs:
           lib /OUT:lua54.lib *.obj
           link /OUT:luac.exe luac.o lua54.lib
           
+          cd .. 
+          cd .. 
+          
           git clone https://github.com/GoranKovac/luasocket --depth 1
           cd luasocket/
           cp ../lua-5.4.6/src/lua5.4.6.lib .
