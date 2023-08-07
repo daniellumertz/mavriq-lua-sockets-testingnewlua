@@ -54,7 +54,6 @@ jobs:
 
     steps:
       - name: Build Lua Lib
-        shell: msvc-dev-cmd
         run: |
           wget https://www.lua.org/ftp/lua-5.4.6.tar.gz
           tar -xvf lua-5.4.6.tar.gz 
@@ -114,6 +113,7 @@ jobs:
     steps:
 
       - name: Build luasockets
+        shell: msvc-dev-cmd
         run: |
           #curl -sSL -o lua.zip https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/lua-5.4.2_Win64_vc16_lib.zip
           
