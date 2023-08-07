@@ -123,7 +123,7 @@ jobs:
           curl -sSL -o lua.tar.gz https://www.lua.org/ftp/lua-5.4.6.tar.gz
           tar -xvf lua.tar.gz 
           cd lua-5.4.6/src/
-          call  "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+          #call  "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
           cl /MD /O2 /c /DLUA_BUILD_AS_DLL *.c
           ren lua.obj lua.o
           ren luac.obj luac.o
