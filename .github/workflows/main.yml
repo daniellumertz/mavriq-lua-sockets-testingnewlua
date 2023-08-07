@@ -135,7 +135,7 @@ jobs:
           
           git clone https://github.com/GoranKovac/luasocket --depth 1
           cd luasocket/
-          cp ../lua-5.4.6/src/lua54.lib .
+          cp ../lua-5.4.6/src/lua5.4.6.lib .
           cd src/
           cp ../../lua-5.4.6/src/lua.h .
           cp ../../lua-5.4.6/src/luaconf.h .
