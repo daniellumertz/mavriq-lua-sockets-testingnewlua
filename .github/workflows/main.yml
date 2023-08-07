@@ -54,6 +54,7 @@ jobs:
 
     steps:
       - name: Build Lua Lib
+        shell: msvc-dev-cmd
         run: |
           wget https://www.lua.org/ftp/lua-5.4.6.tar.gz
           tar -xvf lua-5.4.6.tar.gz 
@@ -113,8 +114,6 @@ jobs:
     steps:
 
       - name: Build luasockets
-      - uses: actions/checkout@v2
-      - uses: ilammy/msvc-dev-cmd@v1
         run: |
           #curl -sSL -o lua.zip https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/lua-5.4.2_Win64_vc16_lib.zip
           
@@ -125,7 +124,7 @@ jobs:
           curl -sSL -o lua.tar.gz https://www.lua.org/ftp/lua-5.4.6.tar.gz
           tar -xvf lua.tar.gz 
           cd lua-5.4.6/src/
-          call  "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+          #call  "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
           cl /MD /O2 /c /DLUA_BUILD_AS_DLL *.c
           ren lua.obj lua.o
           ren luac.obj luac.o
