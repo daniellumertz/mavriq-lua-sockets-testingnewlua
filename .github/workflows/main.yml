@@ -113,7 +113,7 @@ jobs:
     steps:
 
       - name: Build luasockets
-        shell: cmd
+        shell: bash
         run: |
           #curl -sSL -o lua.zip https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/lua-5.4.2_Win64_vc16_lib.zip
           
