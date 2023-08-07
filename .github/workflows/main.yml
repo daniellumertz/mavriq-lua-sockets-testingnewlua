@@ -114,9 +114,9 @@ jobs:
 
       - name: Build luasockets
         run: |
-          curl -sSL -o lua.zip https://drive.google.com/uc?id=1J2vM-6vDxwLnt9NNhgw2VCzXSaRAOQ23
+          curl -sSL -o lua.zip https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/lua-5.4.2_Win64_vc16_lib.zip
           7z.exe x lua.zip -olua
-          git clone https://github.com/lunarmodules/luasocket --depth 1
+          git clone https://github.com/daniellumertz/luasocket-for-v5.4 --depth 1
           cd luasocket/
           cp ../lua/lua53.lib .
           cd src/
