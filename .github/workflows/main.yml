@@ -111,31 +111,22 @@ jobs:
     runs-on:  windows-2022
 
     steps:
-      - uses: actions/checkout@v2
       - uses: ilammy/msvc-dev-cmd@v1
-      - name: Build luasockets
+      - name: Build lua static
         run: |
-          #curl -sSL -o lua.zip https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/lua-5.4.2_Win64_vc16_lib.zip
-          
-          #curl -sSL -o lua.zip "https://drive.google.com/uc?id=1esqYBG5f5CYtBx1LoEkso5_vJtXYFBHU&export=download"
-          #7z.exe x lua.zip -olua
-          
-          ##Build lua statically
           curl -sSL -o lua.tar.gz https://www.lua.org/ftp/lua-5.4.6.tar.gz
           tar -xvf lua.tar.gz 
           cd lua-5.4.6/src/
-          #call  "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
           cl /MD /O2 /c /DLUA_BUILD_AS_DLL *.c
           ren lua.obj lua.o
-          ren luac.obj luac.o
-          link /DLL /IMPLIB:lua5.4.6.lib /OUT:lua5.4.6.dll *.obj
-          link /OUT:lua.exe lua.o lua5.4.6.lib
+          #ren luac.obj luac.o
+          #link /DLL /IMPLIB:lua5.4.6.lib /OUT:lua5.4.6.dll *.obj
+          #link /OUT:lua.exe lua.o lua5.4.6.lib
           lib /OUT:lua54.lib *.obj
-          link /OUT:luac.exe luac.o lua54.lib
+          #link /OUT:luac.exe luac.o lua54.lib
           
-          cd .. 
-          cd .. 
-          
+      - name: Build luasockets
+        run: |
           git clone https://github.com/GoranKovac/luasocket --depth 1
           cd luasocket/
           cp ../lua-5.4.6/src/lua54.lib .
@@ -143,7 +134,6 @@ jobs:
           cp ../../lua-5.4.6/src/lua.h .
           cp ../../lua-5.4.6/src/luaconf.h .
           cp ../../lua-5.4.6/src/lauxlib.h .
-          cd ..
 
       - name: Setup MSBuild path
         uses: microsoft/setup-msbuild@v1.1
